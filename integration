@@ -19,9 +19,10 @@ for j=1:nSubs
     [ci(:,i,j), q(i,1,j)] = community_louvain(connectivity_matrix(:, :, j), gamma);
     
     % estimate a 'consensus' partition
+    end 
     
-    D(:, :) = agreement(ci(:, i, j));
-    ciu(:, j) = consensus_und(D(:, :),tau,nReps); 
+    D(:, :) = agreement(ci(:, :, j));
+    ciu(:, j) = consensus_und(D,tau,nReps); 
   end
   
 % calculate participation coefficient and module degree z-score (https://sites.google.com/site/bctnet/)
